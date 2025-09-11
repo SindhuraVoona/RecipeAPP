@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/macbookpro/RecipeApp/RECIPEAPP/RecipeApp/tests/RecipeApp.Tests/RecipeApp.Tests.csproj": {}
+    "/Users/macbookpro/Projects/RecipeAPP/RecipeApp/tests/RecipeApp.Tests/RecipeApp.Tests.csproj": {}
   },
   "projects": {
-    "/Users/macbookpro/RecipeApp/RECIPEAPP/RecipeApp/tests/RecipeApp.Tests/RecipeApp.Tests.csproj": {
+    "/Users/macbookpro/Projects/RecipeAPP/RecipeApp/tests/RecipeApp.Tests/RecipeApp.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/macbookpro/RecipeApp/RECIPEAPP/RecipeApp/tests/RecipeApp.Tests/RecipeApp.Tests.csproj",
+        "projectUniqueName": "/Users/macbookpro/Projects/RecipeAPP/RecipeApp/tests/RecipeApp.Tests/RecipeApp.Tests.csproj",
         "projectName": "RecipeApp.Tests",
-        "projectPath": "/Users/macbookpro/RecipeApp/RECIPEAPP/RecipeApp/tests/RecipeApp.Tests/RecipeApp.Tests.csproj",
+        "projectPath": "/Users/macbookpro/Projects/RecipeAPP/RecipeApp/tests/RecipeApp.Tests/RecipeApp.Tests.csproj",
         "packagesPath": "/Users/macbookpro/.nuget/packages/",
-        "outputPath": "/Users/macbookpro/RecipeApp/RECIPEAPP/RecipeApp/tests/RecipeApp.Tests/obj/",
+        "outputPath": "/Users/macbookpro/Projects/RecipeAPP/RecipeApp/tests/RecipeApp.Tests/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/macbookpro/.nuget/NuGet/NuGet.Config"

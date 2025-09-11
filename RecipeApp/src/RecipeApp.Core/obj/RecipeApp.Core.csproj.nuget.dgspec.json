@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.UI/RecipeApp.UI.csproj": {}
+    "/Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Core/RecipeApp.Core.csproj": {}
   },
   "projects": {
-    "/Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.UI/RecipeApp.UI.csproj": {
+    "/Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Core/RecipeApp.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.UI/RecipeApp.UI.csproj",
-        "projectName": "RecipeApp.UI",
-        "projectPath": "/Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.UI/RecipeApp.UI.csproj",
+        "projectUniqueName": "/Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Core/RecipeApp.Core.csproj",
+        "projectName": "RecipeApp.Core",
+        "projectPath": "/Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Core/RecipeApp.Core.csproj",
         "packagesPath": "/Users/macbookpro/.nuget/packages/",
-        "outputPath": "/Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.UI/obj/",
+        "outputPath": "/Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Core/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/macbookpro/.nuget/NuGet/NuGet.Config"
@@ -49,9 +49,6 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

@@ -88,6 +88,16 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "RecipeApp.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/RecipeApp.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RecipeApp.Core.dll": {}
+        }
       }
     }
   },
@@ -429,10 +439,16 @@
         "swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512",
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
+    },
+    "RecipeApp.Core/1.0.0": {
+      "type": "project",
+      "path": "../RecipeApp.Core/RecipeApp.Core.csproj",
+      "msbuildProject": "../RecipeApp.Core/RecipeApp.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "RecipeApp.Core >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.5.0"
     ]
   },
@@ -442,11 +458,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/macbookpro/RecipeApp/RECIPEAPP/RecipeApp/src/RecipeApp.Api/RecipeApp.Api.csproj",
+      "projectUniqueName": "/Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Api/RecipeApp.Api.csproj",
       "projectName": "RecipeApp.Api",
-      "projectPath": "/Users/macbookpro/RecipeApp/RECIPEAPP/RecipeApp/src/RecipeApp.Api/RecipeApp.Api.csproj",
+      "projectPath": "/Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Api/RecipeApp.Api.csproj",
       "packagesPath": "/Users/macbookpro/.nuget/packages/",
-      "outputPath": "/Users/macbookpro/RecipeApp/RECIPEAPP/RecipeApp/src/RecipeApp.Api/obj/",
+      "outputPath": "/Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Api/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/macbookpro/.nuget/NuGet/NuGet.Config"
@@ -460,7 +476,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Core/RecipeApp.Core.csproj": {
+              "projectPath": "/Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Core/RecipeApp.Core.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

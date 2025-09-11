@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rlIaFp4t1D9efrY7Nqu2i4vyksVlDBt3p7nqbCk8VNdwAKnVBlaLZqRk+1yPCy+faXdEE/4+M7F5zXNdaxw8bw==",
+  "dgSpecHash": "kmzLSjwcbqsl03Vn1KYHSGvkVvmhjfXr6YpV7KWSDdMtl4xOLHps0mb0t3chel9kHQ1GGFk1n0W2dI/Cf9AUxw==",
   "success": true,
-  "projectFilePath": "/Users/macbookpro/RecipeApp/RECIPEAPP/RecipeApp/tests/RecipeApp.Tests/RecipeApp.Tests.csproj",
+  "projectFilePath": "/Users/macbookpro/Projects/RecipeAPP/RecipeApp/tests/RecipeApp.Tests/RecipeApp.Tests.csproj",
   "expectedPackageFiles": [
     "/Users/macbookpro/.nuget/packages/coverlet.collector/3.1.2/coverlet.collector.3.1.2.nupkg.sha512",
     "/Users/macbookpro/.nuget/packages/microsoft.codecoverage/17.1.0/microsoft.codecoverage.17.1.0.nupkg.sha512",
