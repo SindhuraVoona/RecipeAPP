@@ -1,0 +1,60 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = RecipeApp.UI
+build_property.RootNamespace = RecipeApp.UI
+build_property.ProjectDir = /Users/macbookpro/RecipeApp/RECIPEAPP/RecipeApp/src/RecipeApp.UI/
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = /Users/macbookpro/RecipeApp/RECIPEAPP/RecipeApp/src/RecipeApp.UI
+build_property._RazorSourceGeneratorDebug = 
+
+[/Users/macbookpro/RecipeApp/RECIPEAPP/RecipeApp/src/RecipeApp.UI/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/macbookpro/RecipeApp/RECIPEAPP/RecipeApp/src/RecipeApp.UI/Pages/Counter.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ291bnRlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/macbookpro/RecipeApp/RECIPEAPP/RecipeApp/src/RecipeApp.UI/Pages/FetchData.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRmV0Y2hEYXRhLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/macbookpro/RecipeApp/RECIPEAPP/RecipeApp/src/RecipeApp.UI/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/macbookpro/RecipeApp/RECIPEAPP/RecipeApp/src/RecipeApp.UI/Shared/SurveyPrompt.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL1N1cnZleVByb21wdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/macbookpro/RecipeApp/RECIPEAPP/RecipeApp/src/RecipeApp.UI/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/macbookpro/RecipeApp/RECIPEAPP/RecipeApp/src/RecipeApp.UI/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL01haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-l2gvi2s7pt
+
+[/Users/macbookpro/RecipeApp/RECIPEAPP/RecipeApp/src/RecipeApp.UI/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL05hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-hoi2n42zy5
+
+[/Users/macbookpro/RecipeApp/RECIPEAPP/RecipeApp/src/RecipeApp.UI/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/macbookpro/RecipeApp/RECIPEAPP/RecipeApp/src/RecipeApp.UI/Pages/_Host.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX0hvc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/macbookpro/RecipeApp/RECIPEAPP/RecipeApp/src/RecipeApp.UI/Pages/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX0xheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
