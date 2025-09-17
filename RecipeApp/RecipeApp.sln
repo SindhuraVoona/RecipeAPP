@@ -7,8 +7,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C1542D5C-50B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeApp.Api", "src\RecipeApp.Api\RecipeApp.Api.csproj", "{58C15A15-AA55-4545-8798-718D3D7FBFCB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeApp.UI", "src\RecipeApp.UI\RecipeApp.UI.csproj", "{C4F2BF35-819C-4C5C-A2ED-4AAF97CDDAEF}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{6C792118-086D-446B-8B54-DAC798C51609}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeApp.Tests", "tests\RecipeApp.Tests\RecipeApp.Tests.csproj", "{F9AE1E24-1F28-43C7-9D01-BC3D4A458C60}"
