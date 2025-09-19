@@ -1,0 +1,46 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      // 🔹 Debugging .NET API
+     "name": ".NET Core Launch (RecipeApp.Api)",
+  "type": "coreclr",
+  "request": "launch",
+  "preLaunchTask": "build",
+  "program": "dotnet",
+  "args": [
+    "run",
+    "--project",
+    "${workspaceFolder}/RecipeApp/src/RecipeApp.Api/RecipeApp.Api.csproj"
+  ],
+  "cwd": "${workspaceFolder}/RecipeApp/src/RecipeApp.Api",
+  "stopAtEntry": false,
+  "serverReadyAction": {
+    "action": "openExternally",
+    "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+      },
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    {
+      // 🔹 Debugging React UI (Vite)
+      "name": "React UI Debug (Vite)",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:5173",
+      "webRoot": "${workspaceFolder}/src/recipeapp-ui/src",
+      "skipFiles": ["<node_internals>/**"]
+    }
+  ],
+  "compounds": [
+    {
+      // 🔹 Run both API & UI together
+      "name": "Debug API + UI",
+      "configurations": [
+        ".NET Core Launch (RecipeApp.Api)",
+        "React UI Debug (Vite)"
+      ]
+    }
+  ]
+}

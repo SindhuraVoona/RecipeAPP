@@ -19,7 +19,7 @@ public class RecipesController : ControllerBase
     public async Task<IActionResult> GetRecipes()
     {
         try
-        {
+        { 
             var recipes = await _service.GetRecipesAsync();
             return Ok(recipes);
         }
