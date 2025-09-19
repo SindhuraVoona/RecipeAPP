@@ -1,25 +1,50 @@
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const Home = () => {
-  // Sample recipe data; replace with API later
-  const recipes = [
-    { id: 1, name: "Spaghetti Carbonara" },
-    { id: 2, name: "Chicken Curry" },
-    { id: 3, name: "Veggie Stir Fry" },
-  ];
+  const [recipes, setRecipes] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    // Try both HTTP and HTTPS if needed
+    fetch("https://localhost:7136/api/recipes")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`API error: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setRecipes(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError("Failed to fetch recipes. Is the API running and CORS enabled?");
+        setLoading(false);
+        console.error(err);
+      });
+  }, []);
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div style={{ color: "red" }}>{error}</div>;
 
   return (
     <div className="home-container">
       <h2>Recipes</h2>
       <div className="recipes-grid">
-        {recipes.map((recipe) => (
-          <div key={recipe.id} className="card">
-            <h3>{recipe.name}</h3>
-            <Link to={`/recipes/${recipe.id}`}>
-              <button>View Details</button>
-            </Link>
-          </div>
-        ))}
+        {recipes.length === 0 ? (
+          <div>No recipes found.</div>
+        ) : (
+          recipes.map((recipe) => (
+            <div key={recipe.recipeId} className="card">
+              <h3>{recipe.title}</h3>
+              <Link to={`/recipes/${recipe.recipeId}`}>
+                <button>View Details</button>
+              </Link>
+            </div>
+          ))
+        )}
       </div>
     </div>
   );
