@@ -39,7 +39,7 @@ public class RecipesController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreateRecipe(RecipeApp.Core.Models.Recipe recipe)
+    public async Task<IActionResult> CreateRecipe(Recipe recipe)
     {
         var created = await _service.CreateRecipeAsync(recipe);
         return CreatedAtAction(nameof(GetRecipe), new { id = created.RecipeId }, created);

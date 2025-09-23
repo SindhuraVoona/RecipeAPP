@@ -1,4 +1,3 @@
-// Services/IRecipeService.cs
 using RecipeApp.Core.Models;
 
 public interface IRecipeService
