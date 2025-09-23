@@ -213,3 +213,23 @@ button:hover {
   font-size: 2rem;
   margin-bottom: 1rem;
 }
+
+.input-small {
+  width: 200px; /* or any size you want */
+}
+
+.input-medium {
+  width: 400px; /* or any size you want */
+} 
+
+.input-large {
+  width: 600px; /* or any size you want */
+}
+
+.category-dropdown {
+  width: 200px;    /* Set to your preferred size */
+  padding: 0.6rem;
+  background: #f8fafc;
+  font-size: 1rem;
+  color: #333;
+}

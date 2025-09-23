@@ -7,7 +7,6 @@ const Home = () => {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    // Try both HTTP and HTTPS if needed
     fetch("https://localhost:7136/api/recipes")
       .then((response) => {
         if (!response.ok) {
