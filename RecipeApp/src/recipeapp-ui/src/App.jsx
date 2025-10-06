@@ -4,13 +4,15 @@ import Home from "./Home";
 import RecipeDetails from "./RecipeDetails";
 import NewRecipe from "./NewRecipe";
 import Profile from "./Profile";
+import Login from "./Login";
 
 export default function App() {
   return (
     <Router>
       <Layout>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Login />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/add-recipe" element={<NewRecipe />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/recipes/:id" element={<DynamicRecipeDetails />} />

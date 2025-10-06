@@ -3,7 +3,6 @@ namespace RecipeApp.Core.Models
     public class Category
     {
         public int CategoryId { get; set; }
-        public string Name { get; set; }
-        public List<Recipe> Recipes { get; set; }
+        public string? Name { get; set; }
     }
 }

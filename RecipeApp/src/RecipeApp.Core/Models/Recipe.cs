@@ -1,16 +1,17 @@
-using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace RecipeApp.Core.Models
 {
     public class Recipe
     {
-       public int RecipeId { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
+        [Key]
+        public int RecipeId { get; set; }
+        public string? Title { get; set; }
+        public string? Description { get; set; }
         public int? CategoryId { get; set; }
-        public Category Category { get; set; }
-        public List<RecipeIngredient> RecipeIngredients { get; set; }
-        public List<Comment> Comments { get; set; }
-        public List<Rating> Ratings { get; set; }
+        public Category? Category { get; set; }
+        public List<RecipeIngredient> RecipeIngredients { get; set; } = new();
+        public List<Comment> Comments { get; set; } = new();
+        public List<Rating> Ratings { get; set; } = new();
     }
 }

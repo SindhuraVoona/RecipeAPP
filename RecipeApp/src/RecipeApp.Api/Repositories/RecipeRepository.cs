@@ -14,7 +14,7 @@ public class RecipeRepository : IRecipeRepository
 
     public async Task<IEnumerable<Recipe>> GetAllRecipesAsync()
     {
-        return await _context.Recipes
+        return await _context.Recipes!
             .Include(r => r.Category)
             .Include(r => r.RecipeIngredients)
                 .ThenInclude(ri => ri.Ingredient)
@@ -23,7 +23,7 @@ public class RecipeRepository : IRecipeRepository
 
     public async Task<Recipe?> GetRecipeByIdAsync(int id)
     {
-        return await _context.Recipes
+        return await _context.Recipes!
             .Include(r => r.Category)
             .Include(r => r.RecipeIngredients)
                 .ThenInclude(ri => ri.Ingredient)
@@ -32,6 +32,9 @@ public class RecipeRepository : IRecipeRepository
 
     public async Task<Recipe> AddRecipeAsync(Recipe recipe)
     {
+        if (_context.Recipes == null)
+            throw new InvalidOperationException("Recipes DbSet is null.");
+
         _context.Recipes.Add(recipe);
         await _context.SaveChangesAsync();
         return recipe;
@@ -39,7 +42,7 @@ public class RecipeRepository : IRecipeRepository
 
     public async Task<Recipe?> UpdateRecipeAsync(Recipe recipe)
     {
-        var existing = await _context.Recipes.FindAsync(recipe.RecipeId);
+        var existing = await _context.Recipes!.FindAsync(recipe.RecipeId);
         if (existing == null)
             return null;
 
@@ -51,6 +54,9 @@ public class RecipeRepository : IRecipeRepository
 
     public async Task<bool> DeleteRecipeAsync(int id)
     {
+        if (_context.Recipes == null)
+            throw new InvalidOperationException("Recipes DbSet is null.");
+
         var recipe = await _context.Recipes.FindAsync(id);
         if (recipe == null) return false;
 
