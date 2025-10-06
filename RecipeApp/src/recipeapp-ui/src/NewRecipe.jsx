@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 const AddRecipe = () => {
   const [title, setTitle] = useState("");
-  const [instructions, setInstructions] = useState("");
+  const [description, setDescription] = useState("");
   const [categoryId, setCategoryId] = useState("");
   const [categories, setCategories] = useState([]);
   const [ingredients, setIngredients] = useState([{ name: "", quantity: "" }]);
@@ -45,7 +45,7 @@ const AddRecipe = () => {
 
     const newRecipe = {
       title,
-      instructions,
+      description,
       categoryId: categoryId ? parseInt(categoryId) : null,
       recipeIngredients: ingredients
         .filter((i) => i.name.trim() !== "")
@@ -63,15 +63,16 @@ const AddRecipe = () => {
       });
 
       if (!response.ok) throw new Error("Failed to save recipe");
-
+      const createdRecipe = await response.json(); // This will include the generated recipeId
+      alert(`Recipe created with ID: ${createdRecipe.recipeId}`);
+      // Reset form or redirect as needed
       setMessage("✅ Recipe saved successfully!");
       setTitle("");
-      setInstructions("");
+      setDescription("");
       setCategoryId("");
       setIngredients([{ name: "", quantity: "" }]);
     } catch (err) {
-      setMessage("❌ Error saving recipe.");
-      console.error(err);
+      alert("Error saving recipe: " + err.message);
     }
   };
 
@@ -91,14 +92,14 @@ const AddRecipe = () => {
           />
         </div>
 
-        {/* Instructions */}
+        {/* Description */}
         <div>
-          <label className="block font-medium mb-1">Instructions</label>
+          <label className="block font-medium mb-1">Description</label>
           <textarea
             className="input-large border rounded-lg p-2"
             rows="4"
-            value={instructions}
-            onChange={(e) => setInstructions(e.target.value)}
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
             required
           />
         </div>
@@ -171,9 +172,8 @@ const AddRecipe = () => {
 
       {message && (
         <div
-          className={`mt-4 text-center font-semibold ${
-            message.includes("Error") ? "text-red-600" : "text-green-600"
-          }`}
+          className={`mt-4 text-center font-semibold ${message.includes("Error") ? "text-red-600" : "text-green-600"
+            }`}
         >
           {message}
         </div>

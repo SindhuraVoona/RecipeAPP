@@ -7,32 +7,35 @@ namespace RecipeApp.Api.Data
     {
         public RecipeDbContext(DbContextOptions<RecipeDbContext> options) : base(options) { }
 
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<Recipe> Recipes { get; set; }
-        public DbSet<Ingredient> Ingredients { get; set; }
-        public DbSet<RecipeIngredient> RecipeIngredients { get; set; }
-        public DbSet<Comment> Comments { get; set; }
-        public DbSet<Rating> Ratings { get; set; }
+        public DbSet<Category>? Categories { get; set; }
+        public DbSet<Recipe>? Recipes { get; set; }
+        public DbSet<Ingredient>? Ingredients { get; set; }
+        public DbSet<RecipeIngredient>? RecipeIngredients { get; set; }
+        public DbSet<Comment>? Comments { get; set; }
+        public DbSet<Rating>? Ratings { get; set; }
+        public DbSet<User>? Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<RecipeIngredient>()
                 .HasKey(ri => new { ri.RecipeId, ri.IngredientId });
 
-            // Optional: Configure relationships to avoid cycles
+            // Recipe - RecipeIngredients (no navigation property on RecipeIngredient)
             modelBuilder.Entity<Recipe>()
                 .HasMany(r => r.RecipeIngredients)
-                .WithOne(ri => ri.Recipe)
+                .WithOne() // No navigation property
                 .HasForeignKey(ri => ri.RecipeId);
 
+            // Recipe - Comments (no navigation property on Comment)
             modelBuilder.Entity<Recipe>()
                 .HasMany(r => r.Comments)
-                .WithOne(c => c.Recipe)
+                .WithOne() // No navigation property
                 .HasForeignKey(c => c.RecipeId);
 
+            // Recipe - Ratings (no navigation property on Rating)
             modelBuilder.Entity<Recipe>()
                 .HasMany(r => r.Ratings)
-                .WithOne(rt => rt.Recipe)
+                .WithOne() // No navigation property
                 .HasForeignKey(rt => rt.RecipeId);
         }
     }
