@@ -5,6 +5,7 @@
 /Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Api/bin/Debug/net6.0/RecipeApp.Api.runtimeconfig.json
 /Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Api/bin/Debug/net6.0/RecipeApp.Api.dll
 /Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Api/bin/Debug/net6.0/RecipeApp.Api.pdb
+/Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Api/bin/Debug/net6.0/BCrypt.Net-Next.dll
 /Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Api/bin/Debug/net6.0/Humanizer.dll
 /Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Api/bin/Debug/net6.0/Microsoft.AspNetCore.JsonPatch.dll
 /Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Api/bin/Debug/net6.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll

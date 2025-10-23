@@ -9,7 +9,7 @@ export default function App() {
         <Route path="/recipes/:id/edit" element={<DynamicEditForm />} />
         <Route path="/add-recipe" element={<NewRecipe />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="register" element={<Register />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </Router>
   );

@@ -49,7 +49,8 @@ namespace RecipeApp.Tests
             // Assert
             var createdAt = Assert.IsType<CreatedAtActionResult>(result);
             Assert.Equal(nameof(RecipesController.GetRecipe), createdAt.ActionName);
-            Assert.Equal(created.RecipeId, ((dynamic)createdAt.Value).RecipeId);
+            var returned = Assert.IsAssignableFrom<Recipe>(createdAt.Value);
+            Assert.Equal(created.RecipeId, returned.RecipeId);
         }
 
         [Fact]

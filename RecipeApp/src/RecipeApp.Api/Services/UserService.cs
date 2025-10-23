@@ -12,4 +12,9 @@ public class UserService : IUserService
             return user;
         return null;
     }
+
+    public async Task<User> CreateUserAsync(User user, string password)
+    {
+        return await _repository.CreateUserAsync(user, password);
+    }   
 }   
