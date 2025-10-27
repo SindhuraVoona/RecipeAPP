@@ -1,3 +1,5 @@
+import { Route } from "react-router-dom";
+
 export default function App() {
   return (
     <Router>
@@ -7,6 +9,7 @@ export default function App() {
         <Route path="/recipes/:id/edit" element={<DynamicEditForm />} />
         <Route path="/add-recipe" element={<NewRecipe />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </Router>
   );

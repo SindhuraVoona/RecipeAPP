@@ -21,7 +21,7 @@ const Login = ({ onLogin }) => {
             const data = await response.json();
             setMessage("Login successful!");
             if (onLogin) onLogin(data.token);
-            navigate("/home"); // Redirect to home page
+            navigate("/"); // Redirect to home page
         } catch (err) {
             setMessage("Login failed: " + err.message);
         }

@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "lfnFXwr/+av4WSQw5yfjSDGrOW8nkwUtwnIlrEzmaFdwPrFfM4jNPC1ce2giCUPTJc/WOAL+pVCzN1O6E8IMYw==",
+  "dgSpecHash": "3ENTwqN+YspC7LVedPi3Sy04E7SZEqL2H1BASTia85bcBn42hwcj22oWostjLQWDSTv18c24w7gueFKRVw+9nw==",
   "success": true,
   "projectFilePath": "/Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Api/RecipeApp.Api.csproj",
   "expectedPackageFiles": [
+    "/Users/macbookpro/.nuget/packages/bcrypt.net-next/4.0.3/bcrypt.net-next.4.0.3.nupkg.sha512",
     "/Users/macbookpro/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
     "/Users/macbookpro/.nuget/packages/microsoft.aspnetcore.jsonpatch/6.0.22/microsoft.aspnetcore.jsonpatch.6.0.22.nupkg.sha512",
     "/Users/macbookpro/.nuget/packages/microsoft.aspnetcore.mvc.newtonsoftjson/6.0.22/microsoft.aspnetcore.mvc.newtonsoftjson.6.0.22.nupkg.sha512",

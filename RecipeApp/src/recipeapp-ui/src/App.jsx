@@ -5,14 +5,16 @@ import RecipeDetails from "./RecipeDetails";
 import NewRecipe from "./NewRecipe";
 import Profile from "./Profile";
 import Login from "./Login";
+import Register from "./Register";
 
 export default function App() {
   return (
     <Router>
       <Layout>
         <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/add-recipe" element={<NewRecipe />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/recipes/:id" element={<DynamicRecipeDetails />} />
