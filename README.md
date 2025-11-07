@@ -1,6 +1,8 @@
 # RecipeApp
 
-Small full-stack recipe application: React UI, .NET Core API, and shared Core models.
+RecipeApp is a small full-stack web application for creating, viewing, and managing recipes.
+It demonstrates a clean architecture using React + Vite for the frontend, .NET 6 Web API for the backend, and shared C# models to ensure consistent data structures between both layers.
+This project is ideal for showcasing API integration, authentication, CRUD operations, and modular component design.
 
 ## Project layout
 - src/recipeapp-ui — React 18 + Vite frontend
