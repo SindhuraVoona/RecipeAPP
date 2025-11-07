@@ -17,7 +17,7 @@ This project is ideal for showcasing API integration, authentication, CRUD opera
 - Password hashing: BCrypt.Net-Next
 - HTTP client (UI): axios
 
-- ## How to run (development)
+## How to run (development)
 1. API
 ```bash
 cd /Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Api
