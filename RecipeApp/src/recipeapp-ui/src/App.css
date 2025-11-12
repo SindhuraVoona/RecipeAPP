@@ -2,7 +2,6 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
 }
 
 .logo {
@@ -39,4 +38,36 @@
 
 .read-the-docs {
   color: #888;
+}
+.delete-icon-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  color: #e53e3e;
+}
+
+/* Icon sizing + stroke via currentColor */
+.delete-icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* hover/focus affordances */
+.delete-icon-btn:hover {
+  background: rgba(229, 62, 62, 0.06);
+}
+.delete-icon-btn:focus {
+  outline: 2px solid rgba(229, 62, 62, 0.18);
+  outline-offset: 2px;
 }

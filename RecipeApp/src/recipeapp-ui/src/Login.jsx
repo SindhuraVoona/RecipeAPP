@@ -9,24 +9,40 @@ const Login = ({ onLogin }) => {
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
-        setMessage("");
-        try {
-            const response = await fetch("https://localhost:7136/api/auth/login", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ username, password }),
-            });
-            if (!response.ok) throw new Error("Invalid credentials");
-            const data = await response.json();
-            setMessage("Login successful!");
-            if (onLogin) onLogin(data.token);
-            navigate("/"); // Redirect to home page
-        } catch (err) {
-            setMessage("Login failed: " + err.message);
-        }
-    };
+    e.preventDefault();
+    setMessage("");
+    try {
+        const response = await fetch("https://localhost:7136/api/auth/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username, password }),
+        });
 
+        const text = await response.text();
+        let data;
+        try { data = JSON.parse(text); } catch { data = { message: text }; }
+
+        if (!response.ok) {
+            const errMsg = (data && data.message) ? data.message : response.statusText;
+            throw new Error(errMsg);
+        }
+
+        // ensure token exists
+        if (!data?.token) {
+            throw new Error("Login succeeded but no token returned");
+        }
+
+        // persist token and notify app
+        localStorage.setItem("token", data.token);
+        window.dispatchEvent(new Event("authChanged"));
+
+        setMessage("Login successful!");
+        if (onLogin) onLogin(data.token);
+        navigate("/"); // Redirect to home page
+    } catch (err) {
+        setMessage("Login failed: " + (err?.message ?? err));
+    }
+};
     return (
         <div className="max-w-sm mx-auto p-6 bg-white rounded-2xl shadow-md">
             <h2 className="text-xl font-bold mb-4">Login</h2>

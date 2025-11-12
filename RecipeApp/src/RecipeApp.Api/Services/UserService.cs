@@ -7,14 +7,21 @@ public class UserService : IUserService
 
     public async Task<User?> AuthenticateAsync(string username, string password)
     {
-        var user = await _repository.GetByUsernameAsync(username);
-        if (user != null && user.Password == password) // Use hashing in production!
-            return user;
-        return null;
+       var user = await _repository.GetByUsernameAsync(username);
+       if (user != null && BCrypt.Net.BCrypt.Verify(password, user.Password))
+        {
+        return user;
+        }
+       return null;
     }
 
     public async Task<User> CreateUserAsync(User user, string password)
     {
         return await _repository.CreateUserAsync(user, password);
-    }   
+    }
+
+    public async Task<User?> GetUserByIdAsync(Guid userId)
+    {
+        return await _repository.GetUserByIdAsync(userId);
+    }
 }   
