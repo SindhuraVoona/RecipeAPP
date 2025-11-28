@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Moq;
+using Microsoft.Extensions.Configuration;
 using RecipeApp.Core.Models;
 
 namespace RecipeApp.Tests
@@ -35,8 +36,8 @@ namespace RecipeApp.Tests
         public async Task RecipesController_CreateRecipe_ReturnsCreatedAtAction()
         {
             // Arrange
-            var input = new Recipe { Title = "Test", Description = "Desc", CategoryId = 1 };
-            var created = new Recipe { RecipeId = 42, Title = "Test", Description = "Desc", CategoryId = 1 };
+            var input = new Recipe { Title = "Test", Description = "Desc", Instructions = "Step 1", CategoryId = 1 };
+            var created = new Recipe { RecipeId = 42, Title = "Test", Description = "Desc", Instructions = "Step 1", CategoryId = 1 };
 
             var mockService = new Mock<IRecipeService>();
             mockService.Setup(s => s.CreateRecipeAsync(It.IsAny<Recipe>())).ReturnsAsync(created);
@@ -60,8 +61,7 @@ namespace RecipeApp.Tests
             var mockService = new Mock<IUserService>();
             mockService.Setup(s => s.AuthenticateAsync(It.IsAny<string>(), It.IsAny<string>()))
                        .ReturnsAsync((User?)null);
-
-            var controller = new AuthController(mockService.Object);
+            var controller = new AuthController(mockService.Object, Mock.Of<IConfiguration>());
 
             var login = new LoginRequest { Username = "bad", Password = "bad" };
 
@@ -76,12 +76,11 @@ namespace RecipeApp.Tests
         public async Task AuthController_Login_ReturnsOk_WhenValid()
         {
             // Arrange
-            var user = new User { UserId = 1, Username = "user", Password = "pass" };
+            var user = new User { UserId = System.Guid.NewGuid(), Username = "user", Password = "pass" };
             var mockService = new Mock<IUserService>();
             mockService.Setup(s => s.AuthenticateAsync(user.Username, user.Password))
                        .ReturnsAsync(user);
-
-            var controller = new AuthController(mockService.Object);
+            var controller = new AuthController(mockService.Object, Mock.Of<IConfiguration>());
 
             var login = new LoginRequest { Username = user.Username, Password = user.Password };
 

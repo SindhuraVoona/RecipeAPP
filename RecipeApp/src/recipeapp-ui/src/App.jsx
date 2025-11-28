@@ -6,6 +6,7 @@ import NewRecipe from "./NewRecipe";
 import Profile from "./Profile";
 import Login from "./Login";
 import Register from "./Register";
+import EditRecipeForm from "./EditRecipeForm";
 
 export default function App() {
   return (
@@ -33,5 +34,5 @@ function DynamicRecipeDetails() {
 
 function DynamicEditForm() {
   const { id } = useParams();
-  return <RecipeForm editMode={true} recipeId={id} />;
+  return <EditRecipeForm editMode={true} recipeId={id} />;
 }

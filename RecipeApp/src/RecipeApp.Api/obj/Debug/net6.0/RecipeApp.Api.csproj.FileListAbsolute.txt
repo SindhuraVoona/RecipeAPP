@@ -7,7 +7,10 @@
 /Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Api/bin/Debug/net6.0/RecipeApp.Api.pdb
 /Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Api/bin/Debug/net6.0/BCrypt.Net-Next.dll
 /Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Api/bin/Debug/net6.0/Humanizer.dll
+/Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Api/bin/Debug/net6.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Api/bin/Debug/net6.0/Microsoft.AspNetCore.Authorization.dll
 /Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Api/bin/Debug/net6.0/Microsoft.AspNetCore.JsonPatch.dll
+/Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Api/bin/Debug/net6.0/Microsoft.AspNetCore.Metadata.dll
 /Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Api/bin/Debug/net6.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 /Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Api/bin/Debug/net6.0/Microsoft.Data.SqlClient.dll
 /Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Api/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.dll
@@ -17,6 +20,10 @@
 /Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Api/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.SqlServer.dll
 /Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Api/bin/Debug/net6.0/Microsoft.Extensions.Caching.Memory.dll
 /Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Api/bin/Debug/net6.0/Microsoft.Extensions.DependencyInjection.dll
+/Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Api/bin/Debug/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Api/bin/Debug/net6.0/Microsoft.Extensions.Logging.Abstractions.dll
+/Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Api/bin/Debug/net6.0/Microsoft.Extensions.Options.dll
+/Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Api/bin/Debug/net6.0/Microsoft.Extensions.Primitives.dll
 /Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Api/bin/Debug/net6.0/Microsoft.Identity.Client.dll
 /Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Api/bin/Debug/net6.0/Microsoft.IdentityModel.JsonWebTokens.dll
 /Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Api/bin/Debug/net6.0/Microsoft.IdentityModel.Logging.dll
@@ -68,10 +75,3 @@
 /Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Api/obj/Debug/net6.0/RecipeApp.Api.pdb
 /Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Api/obj/Debug/net6.0/RecipeApp.Api.genruntimeconfig.cache
 /Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Api/obj/Debug/net6.0/ref/RecipeApp.Api.dll
-/Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Api/bin/Debug/net6.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
-/Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Api/bin/Debug/net6.0/Microsoft.AspNetCore.Authorization.dll
-/Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Api/bin/Debug/net6.0/Microsoft.AspNetCore.Metadata.dll
-/Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Api/bin/Debug/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
-/Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Api/bin/Debug/net6.0/Microsoft.Extensions.Logging.Abstractions.dll
-/Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Api/bin/Debug/net6.0/Microsoft.Extensions.Options.dll
-/Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Api/bin/Debug/net6.0/Microsoft.Extensions.Primitives.dll

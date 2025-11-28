@@ -1,0 +1,10 @@
+/Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Core/bin/Release/net6.0/RecipeApp.Core.deps.json
+/Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Core/bin/Release/net6.0/RecipeApp.Core.dll
+/Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Core/bin/Release/net6.0/RecipeApp.Core.pdb
+/Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Core/obj/Release/net6.0/RecipeApp.Core.csproj.AssemblyReference.cache
+/Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Core/obj/Release/net6.0/RecipeApp.Core.GeneratedMSBuildEditorConfig.editorconfig
+/Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Core/obj/Release/net6.0/RecipeApp.Core.csproj.CoreCompileInputs.cache
+/Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Core/obj/Release/net6.0/RecipeApp.Core.dll
+/Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Core/obj/Release/net6.0/refint/RecipeApp.Core.dll
+/Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Core/obj/Release/net6.0/RecipeApp.Core.pdb
+/Users/macbookpro/Projects/RecipeAPP/RecipeApp/src/RecipeApp.Core/obj/Release/net6.0/ref/RecipeApp.Core.dll

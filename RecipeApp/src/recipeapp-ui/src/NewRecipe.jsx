@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 const AddRecipe = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [instructions, setInstructions] = useState("");
   const [categoryId, setCategoryId] = useState("");
   const [categories, setCategories] = useState([]);
   const [ingredients, setIngredients] = useState([{ name: "", quantity: "" }]);
@@ -69,6 +70,7 @@ const AddRecipe = () => {
       setMessage("✅ Recipe saved successfully!");
       setTitle("");
       setDescription("");
+      setInstructions("");
       setCategoryId("");
       setIngredients([{ name: "", quantity: "" }]);
     } catch (err) {
@@ -103,6 +105,18 @@ const AddRecipe = () => {
             required
           />
         </div>
+        
+        {/* Instructions */}
+        <div>
+          <label className="block font-medium mb-1">Instructions</label>
+          <textarea
+            className="input-large border rounded-lg p-2"
+            rows="6"
+            value={instructions}
+            onChange={(e) => setInstructions(e.target.value)}
+            required
+          />
+        </div>  
 
         {/* Category Dropdown */}
         <div>
