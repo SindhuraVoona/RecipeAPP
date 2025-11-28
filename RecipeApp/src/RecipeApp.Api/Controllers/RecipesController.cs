@@ -30,10 +30,10 @@ public class RecipesController : ControllerBase
         }
     }
 
-    [HttpGet("{id}")]
-    public async Task<IActionResult> GetRecipe(int id)
+    [HttpGet("{recipeId}")]
+    public async Task<IActionResult> GetRecipe(int recipeId)
     {
-        var recipe = await _service.GetRecipeAsync(id);
+        var recipe = await _service.GetRecipeAsync(recipeId);
         if (recipe is null) return NotFound();
         return Ok(recipe!);
     }
@@ -42,21 +42,21 @@ public class RecipesController : ControllerBase
     public async Task<IActionResult> CreateRecipe(Recipe recipe)
     {
         var created = await _service.CreateRecipeAsync(recipe);
-        return CreatedAtAction(nameof(GetRecipe), new { id = created.RecipeId }, created);
+        return CreatedAtAction(nameof(GetRecipe), new { recipeId = created.RecipeId }, created);
     }
 
-    [HttpPut("{id}")]
-    public async Task<IActionResult> UpdateRecipe(int id, Recipe recipe)
+    [HttpPut("{recipeId}")]
+    public async Task<IActionResult> UpdateRecipe(int recipeId, Recipe recipe)
     {
-        var updated = await _service.UpdateRecipeAsync(id, recipe);
+        var updated = await _service.UpdateRecipeAsync(recipeId, recipe);
         if (updated == null) return NotFound();
         return Ok(updated);
     }
 
-    [HttpDelete("{id}")]
-    public async Task<IActionResult> DeleteRecipe(int id)
+    [HttpDelete("{recipeId}")]
+    public async Task<IActionResult> DeleteRecipe(int recipeId)
     {
-        var deleted = await _service.DeleteRecipeAsync(id);
+        var deleted = await _service.DeleteRecipeAsync(recipeId);
         if (!deleted) return NotFound();
         return NoContent();
     }

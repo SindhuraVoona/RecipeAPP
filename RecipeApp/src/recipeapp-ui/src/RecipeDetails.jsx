@@ -15,7 +15,6 @@ const RecipeDetails = () => {
         const response = await api.get(`/recipes/${id}`);
         setRecipe(response.data);
       } catch (err) {
-        // Prefer backend message if available, otherwise generic error
         const message = err?.response?.data?.message || err?.message || "Failed to fetch recipe details";
         setError(message);
         console.error("Fetch recipe error:", err);
@@ -41,29 +40,66 @@ const RecipeDetails = () => {
     }
   };
 
+  const handleEdit = () => {
+    // navigate to the edit form; EditRecipeForm will fetch and prefill by id
+    navigate(`/recipes/${id}/edit`);
+  };
+
   if (loading) return <div className="text-center p-4">Loading recipe...</div>;
   if (error) return <div className="text-red-600 p-4">{error}</div>;
   if (!recipe) return <div className="p-4">Recipe not found.</div>;
 
   return (
     <div className="recipe-details-container max-w-2xl mx-auto p-6 bg-white rounded-2xl shadow-md">
-      <div className="details-header" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+      <div
+        className="details-header"
+        style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}
+      >
         <h2 className="text-3xl font-bold mb-4">{recipe.title}</h2>
-        <button onClick={handleDelete} className="delete-icon-btn" aria-label="Delete recipe" title="Delete recipe">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            className="delete-icon"
-            aria-hidden="true"
-            focusable="false"
+
+        <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
+          {/* Edit icon button */}
+          <button
+            onClick={handleEdit}
+            aria-label="Edit recipe"
+            title="Edit recipe"
+            className="icon-btn edit-icon-btn"
           >
-            <polyline points="3 6 5 6 21 6" />
-            <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
-            <path d="M10 11v6" />
-            <path d="M14 11v6" />
-            <path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" />
-          </svg>
-        </button>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              className="edit-icon"
+              aria-hidden="true"
+              focusable="false"
+            >
+              {/* Pencil icon (stroke uses currentColor) */}
+              <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z" />
+              <path d="M20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
+            </svg>
+          </button>
+
+          {/* Delete icon button */}
+          <button
+            onClick={handleDelete}
+            aria-label="Delete recipe"
+            title="Delete recipe"
+            className="icon-btn delete-icon-btn"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              className="delete-icon"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <polyline points="3 6 5 6 21 6" />
+              <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
+              <path d="M10 11v6" />
+              <path d="M14 11v6" />
+              <path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" />
+            </svg>
+          </button>
+        </div>
       </div>
 
       <p className="text-gray-700 mb-6">{recipe.description}</p>

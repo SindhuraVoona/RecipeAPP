@@ -39,7 +39,8 @@
 .read-the-docs {
   color: #888;
 }
-.delete-icon-btn {
+/* generic icon button used for edit/delete */
+.icon-btn {
   background: transparent;
   border: none;
   cursor: pointer;
@@ -48,10 +49,23 @@
   align-items: center;
   justify-content: center;
   border-radius: 6px;
+  -webkit-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* delete icon color (keeps previous behavior) */
+.delete-icon-btn {
   color: #e53e3e;
 }
 
-/* Icon sizing + stroke via currentColor */
+/* edit icon (pencil) color — adjust as desired */
+.edit-icon-btn {
+  color: #3182ce; /* blue */
+}
+
+/* icons inherit color and use stroke via currentColor */
+.edit-icon,
 .delete-icon {
   width: 20px;
   height: 20px;
@@ -64,10 +78,15 @@
 }
 
 /* hover/focus affordances */
-.delete-icon-btn:hover {
-  background: rgba(229, 62, 62, 0.06);
+.icon-btn:hover {
+  background: rgba(0, 0, 0, 0.04); /* subtle hover */
 }
-.delete-icon-btn:focus {
-  outline: 2px solid rgba(229, 62, 62, 0.18);
+.icon-btn:focus {
+  outline: 2px solid rgba(49, 130, 206, 0.18);
   outline-offset: 2px;
+}
+
+/* keep delete focus ring red-ish when focused */
+.delete-icon-btn:focus {
+  outline-color: rgba(229, 62, 62, 0.18);
 }
