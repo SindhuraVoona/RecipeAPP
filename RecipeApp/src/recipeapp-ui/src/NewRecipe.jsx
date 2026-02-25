@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import api from "../services/api";
 
 const AddRecipe = () => {
   const [title, setTitle] = useState("");
@@ -13,10 +14,8 @@ const AddRecipe = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch("https://localhost:7136/api/categories");
-        if (!response.ok) throw new Error("Failed to fetch categories");
-        const data = await response.json();
-        setCategories(data);
+        const response = await api.get("/categories");
+        setCategories(response.data);
       } catch (err) {
         console.error("Error fetching categories:", err);
       }
@@ -48,6 +47,7 @@ const AddRecipe = () => {
       title,
       description,
       categoryId: categoryId ? parseInt(categoryId) : null,
+      instructions,
       recipeIngredients: ingredients
         .filter((i) => i.name.trim() !== "")
         .map((i) => ({
@@ -57,14 +57,8 @@ const AddRecipe = () => {
     };
 
     try {
-      const response = await fetch("https://localhost:7136/api/recipes", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(newRecipe),
-      });
-
-      if (!response.ok) throw new Error("Failed to save recipe");
-      const createdRecipe = await response.json(); // This will include the generated recipeId
+      const response = await api.post("/recipes", newRecipe);
+      const createdRecipe = response.data;
       alert(`Recipe created with ID: ${createdRecipe.recipeId}`);
       // Reset form or redirect as needed
       setMessage("✅ Recipe saved successfully!");
@@ -74,7 +68,8 @@ const AddRecipe = () => {
       setCategoryId("");
       setIngredients([{ name: "", quantity: "" }]);
     } catch (err) {
-      alert("Error saving recipe: " + err.message);
+      const errMsg = err?.response?.data?.message || err?.message || "Failed to save recipe";
+      alert("Error saving recipe: " + errMsg);
     }
   };
 

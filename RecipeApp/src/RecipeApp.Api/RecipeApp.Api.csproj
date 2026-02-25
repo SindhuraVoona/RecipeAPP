@@ -10,7 +10,7 @@
     <!-- Newtonsoft JSON for AddNewtonsoftJson() -->
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="9.0.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="6.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.22" />
 
     <!-- EF Core packages for .NET 6 -->

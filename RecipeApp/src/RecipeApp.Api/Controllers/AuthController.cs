@@ -55,7 +55,10 @@ public async Task<IActionResult> GetProfile()
     var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "id");
     if (userIdClaim == null) return Unauthorized();
 
-    var userId = Guid.Parse(userIdClaim.Value);
+        if (!Guid.TryParse(userIdClaim.Value, out var userId))
+        {
+            return Unauthorized();
+        }
 
     // Fetch user details from the database
     var user = await _userService.GetUserByIdAsync(userId);
@@ -80,7 +83,7 @@ public async Task<IActionResult> GetProfile()
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
         var claims = new[]
         {
-            new Claim(JwtRegisteredClaimNames.Sub, user.Username),
+            new Claim(JwtRegisteredClaimNames.Sub, user.Username ?? string.Empty),
             new Claim("id", user.UserId.ToString())
         };
 

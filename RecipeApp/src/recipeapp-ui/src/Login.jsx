@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import api from "../services/api";
 
 const Login = ({ onLogin }) => {
     const [username, setUsername] = useState("");
@@ -12,20 +12,12 @@ const Login = ({ onLogin }) => {
     e.preventDefault();
     setMessage("");
     try {
-        const response = await fetch("https://localhost:7136/api/auth/login", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ username, password }),
+        const response = await api.post("/auth/login", {
+            username,
+            password,
         });
+        const data = response.data;
 
-        const text = await response.text();
-        let data;
-        try { data = JSON.parse(text); } catch { data = { message: text }; }
-
-        if (!response.ok) {
-            const errMsg = (data && data.message) ? data.message : response.statusText;
-            throw new Error(errMsg);
-        }
 
         // ensure token exists
         if (!data?.token) {

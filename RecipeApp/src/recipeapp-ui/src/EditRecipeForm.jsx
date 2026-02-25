@@ -88,6 +88,7 @@ const EditRecipeForm = ({ editMode = false, recipeId }) => {
         return {
             title,
             description,
+            instructions,
             categoryId: categoryId ? parseInt(categoryId, 10) : null,
             recipeIngredients: ingredients
                 .filter((i) => i.name && i.name.trim() !== "")
