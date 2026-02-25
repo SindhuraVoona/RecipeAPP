@@ -11,7 +11,7 @@ public class UserRepository : IUserRepository
     public async Task<User> CreateUserAsync(User user, string password)
     {
         // store bcrypt hash in PasswordHash property
-        user.Password = BCrypt.Net.BCrypt.HashPassword(password);
+        user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(password);
         await _context.Users!.AddAsync(user);
         await _context.SaveChangesAsync();
         return user;

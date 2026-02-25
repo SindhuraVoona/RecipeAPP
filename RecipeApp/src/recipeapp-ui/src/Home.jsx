@@ -10,12 +10,22 @@ const Home = () => {
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
+        console.log("Fetching recipes...");
         const response = await api.get("/recipes");
+        console.log("Recipes received:", response.data);
         setRecipes(response.data);
       } catch (err) {
         console.error("Fetch recipes error:", err);
+        console.error("Error details:", {
+          message: err?.message,
+          code: err?.code,
+          status: err?.response?.status,
+          statusText: err?.response?.statusText,
+          url: err?.config?.url,
+          baseURL: err?.config?.baseURL,
+        });
         const message = err?.response?.data?.message || err?.message || "Failed to fetch recipes.";
-        setError(`${message} Is the API running and CORS enabled?`);
+        setError(`${message} Is the API running at ${err?.config?.baseURL}${err?.config?.url}?`);
       } finally {
         setLoading(false);
       }

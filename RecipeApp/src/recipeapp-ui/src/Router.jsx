@@ -5,6 +5,7 @@ export default function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/recipes/:id" element={<DynamicRecipeDetails />} />
         <Route path="/recipes/:id/edit" element={<DynamicEditForm />} />
         <Route path="/add-recipe" element={<NewRecipe />} />

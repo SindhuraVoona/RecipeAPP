@@ -17,7 +17,7 @@
       "type": "shell",
       "command": "npm run dev",
       "options": {
-        "cwd": "${workspaceFolder}/src/Recipeapp-ui"
+        "cwd": "${workspaceFolder}/RecipeApp/src/recipeapp-ui"
       },
       "isBackground": true,
       "problemMatcher": {

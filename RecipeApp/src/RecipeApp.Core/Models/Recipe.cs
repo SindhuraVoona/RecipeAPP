@@ -10,6 +10,8 @@ namespace RecipeApp.Core.Models
         public string? Description { get; set; }
         public string? Instructions { get; set; }
         public int? CategoryId { get; set; }
+        public Guid? UserId { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public Category? Category { get; set; }
         public List<RecipeIngredient> RecipeIngredients { get; set; } = new();
         public List<Comment> Comments { get; set; } = new();

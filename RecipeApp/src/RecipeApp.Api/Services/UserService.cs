@@ -8,7 +8,7 @@ public class UserService : IUserService
     public async Task<User?> AuthenticateAsync(string username, string password)
     {
        var user = await _repository.GetByUsernameAsync(username);
-       if (user != null && BCrypt.Net.BCrypt.Verify(password, user.Password))
+         if (user != null && BCrypt.Net.BCrypt.Verify(password, user.PasswordHash))
         {
         return user;
         }

@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import api from "../services/api";
 
 console.log("Layout rendered — updated at", new Date().toISOString());
 
@@ -15,18 +16,8 @@ const Layout = ({ children }) => {
     setLoading(true);
     setError(null);
     try {
-      const token = localStorage.getItem("token");
-      const res = await fetch("https://localhost:7136/api/recipes", {
-        headers: {
-          "Content-Type": "application/json",
-          ...(token ? { Authorization: `Bearer ${token}` } : {}),
-        },
-      });
-      if (!res.ok) {
-        const txt = await res.text();
-        throw new Error(`${res.status} ${txt}`);
-      }
-      const data = await res.json();
+      const response = await api.get("/recipes");
+      const data = response.data;
       setRecipes(Array.isArray(data) ? data : []);
     } catch (err) {
       setError(err?.message ?? "Failed to load recipes");

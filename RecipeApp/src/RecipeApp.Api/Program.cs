@@ -33,15 +33,13 @@ public class Program
 
         // Configure CORS policy
         var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
-        var frontendOrigin = builder.Configuration["FrontendOrigin"] ?? builder.Configuration["VITE_API_BASE_URL"] ?? "*";
         builder.Services.AddCors(options =>
         {
             options.AddPolicy(name: MyAllowSpecificOrigins, policy =>
             {
-                if (frontendOrigin == "*" || string.IsNullOrWhiteSpace(frontendOrigin))
-                    policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
-                else
-                    policy.WithOrigins(frontendOrigin).AllowAnyHeader().AllowAnyMethod().AllowCredentials();
+                policy.AllowAnyOrigin()
+                      .AllowAnyHeader()
+                      .AllowAnyMethod();
             });
         });
 
@@ -77,8 +75,11 @@ public class Program
             app.UseSwagger();
             app.UseSwaggerUI();
         }
+        else
+        {
+            app.UseHttpsRedirection();
+        }
 
-        app.UseHttpsRedirection();
         app.UseCors(MyAllowSpecificOrigins);
         app.UseAuthentication();
         app.UseAuthorization();
