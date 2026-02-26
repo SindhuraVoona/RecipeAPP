@@ -76,13 +76,22 @@ namespace RecipeApp.Tests
         public async Task AuthController_Login_ReturnsOk_WhenValid()
         {
             // Arrange
-            var user = new User { UserId = System.Guid.NewGuid(), Username = "user", Password = "pass" };
+            var user = new User { UserId = System.Guid.NewGuid(), Username = "user", PasswordHash = "hash" };
             var mockService = new Mock<IUserService>();
-            mockService.Setup(s => s.AuthenticateAsync(user.Username, user.Password))
+            mockService.Setup(s => s.AuthenticateAsync(user.Username, "pass"))
                        .ReturnsAsync(user);
-            var controller = new AuthController(mockService.Object, Mock.Of<IConfiguration>());
+            var config = new Microsoft.Extensions.Configuration.ConfigurationBuilder()
+                .AddInMemoryCollection(new Dictionary<string, string?>
+                {
+                    // symmetric key must be long enough for HmacSha256 (at least 32 characters)
+                    ["Jwt:Key"] = "abcdefghijklmnopqrstuvwxyz123456",
+                    ["Jwt:Issuer"] = "test",
+                    ["Jwt:Audience"] = "test"
+                })
+                .Build();
+            var controller = new AuthController(mockService.Object, config);
 
-            var login = new LoginRequest { Username = user.Username, Password = user.Password };
+            var login = new LoginRequest { Username = user.Username, Password = "pass" };
 
             // Act
             var result = await controller.Login(login);
