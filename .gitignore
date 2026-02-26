@@ -1,0 +1,34 @@
+# Ignore Visual Studio temporary files, build results, and
+# user-specific files.
+
+# build
+bin/
+obj/
+
+# IIS
+
+# Visual Studio files
+*.user
+*.suo
+*.sln.docstates
+
+# Rider
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# node modules and Vite output
+recipeapp-ui/node_modules/
+recipeapp-ui/.vite/
+
+# npm
+npm-debug.log*
+
+# other
+.vscode/
+
