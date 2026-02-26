@@ -28,7 +28,34 @@ const Layout = ({ children }) => {
   };
 
   useEffect(() => {
+    // Auto-login: validate token on app mount
+    const validateToken = async () => {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        setIsAuthenticated(false);
+        return;
+      }
+
+      try {
+        // Call /api/auth/profile to verify token is valid
+        console.log("validating token, api call starting");
+        const resp = await api.get("/auth/profile");
+        console.log("token validation response", resp.status, resp.data);
+        // If successful, token is valid — user is authenticated
+        setIsAuthenticated(true);
+      } catch (err) {
+        // Token is invalid (likely expired or revoked)
+        console.warn("Token validation failed:", err?.response?.status, err?.message);
+        localStorage.removeItem("token");
+        setIsAuthenticated(false);
+      }
+    };
+
+    validateToken();
+
+    // Fetch recipes for authenticated users
     fetchRecipes();
+
     // update auth state if localStorage changed in other tabs
     const onStorage = () => setIsAuthenticated(Boolean(localStorage.getItem("token")));
     // custom event for same-tab login/logout
