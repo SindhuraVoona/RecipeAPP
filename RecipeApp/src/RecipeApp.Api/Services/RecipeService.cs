@@ -11,9 +11,15 @@ public class RecipeService : IRecipeService
 
     public Task<IEnumerable<Recipe>> GetRecipesAsync() => _repository.GetAllRecipesAsync();
 
+    public Task<RecipeApp.Api.Models.PagedResult<Recipe>> GetRecipesPagedAsync(int page, int pageSize)
+        => _repository.GetRecipesPagedAsync(page, pageSize);
+
     public Task<Recipe?> GetRecipeAsync(int id) => _repository.GetRecipeByIdAsync(id);
 
     public Task<Recipe> CreateRecipeAsync(Recipe recipe) => _repository.AddRecipeAsync(recipe);
+
+    public Task<Comment> AddCommentAsync(Comment comment) => _repository.AddCommentAsync(comment);
+    public Task<Rating> AddRatingAsync(Rating rating) => _repository.AddRatingAsync(rating);
 
     public async Task<Recipe?> UpdateRecipeAsync(int id, Recipe recipe)
     {

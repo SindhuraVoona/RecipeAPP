@@ -55,6 +55,67 @@ namespace RecipeApp.Tests
         }
 
         [Fact]
+        public async Task RecipesController_AddComment_ReturnsCreatedAtAction()
+        {
+            // Arrange
+            var input = new Comment { RecipeId = 1, Content = "Nice" };
+            var added = new Comment { CommentId = 7, RecipeId = 1, Content = "Nice" };
+            var mockService = new Mock<IRecipeService>();
+            mockService.Setup(s => s.AddCommentAsync(It.IsAny<Comment>())).ReturnsAsync(added);
+            var controller = new RecipesController(mockService.Object, Mock.Of<ILogger<RecipesController>>());
+
+            // Act
+            var result = await controller.AddComment(1, input);
+
+            // Assert
+            var createdAt = Assert.IsType<CreatedAtActionResult>(result);
+            var returned = Assert.IsAssignableFrom<Comment>(createdAt.Value);
+            Assert.Equal(added.CommentId, returned.CommentId);
+        }
+
+        [Fact]
+        public async Task RecipesController_AddRating_ReturnsCreatedAtAction()
+        {
+            // Arrange
+            var input = new Rating { RecipeId = 1, RatingValue = 4 };
+            var added = new Rating { RatingId = 8, RecipeId = 1, RatingValue = 4 };
+            var mockService = new Mock<IRecipeService>();
+            mockService.Setup(s => s.AddRatingAsync(It.IsAny<Rating>())).ReturnsAsync(added);
+            var controller = new RecipesController(mockService.Object, Mock.Of<ILogger<RecipesController>>());
+
+            // Act
+            var result = await controller.AddRating(1, input);
+
+            // Assert
+            var createdAt = Assert.IsType<CreatedAtActionResult>(result);
+            var returned = Assert.IsAssignableFrom<Rating>(createdAt.Value);
+            Assert.Equal(added.RatingId, returned.RatingId);
+        }
+
+        [Fact]
+        public async Task RecipesController_GetRecipes_Paging_Works()
+        {
+            // Arrange
+            var paged = new RecipeApp.Api.Models.PagedResult<Recipe>
+            {
+                Items = new List<Recipe> { new Recipe { RecipeId = 5, Title = "A" } },
+                TotalCount = 100
+            };
+            var mockService = new Mock<IRecipeService>();
+            mockService.Setup(s => s.GetRecipesPagedAsync(2, 10)).ReturnsAsync(paged);
+            var controller = new RecipesController(mockService.Object, Mock.Of<ILogger<RecipesController>>());
+
+            // Act
+            var result = await controller.GetRecipes(2, 10) as OkObjectResult;
+
+            // Assert
+            Assert.NotNull(result);
+            var returned = Assert.IsType<RecipeApp.Api.Models.PagedResult<Recipe>>(result.Value);
+            Assert.Single(returned.Items);
+            Assert.Equal(100, returned.TotalCount);
+        }
+
+        [Fact]
         public async Task AuthController_Login_ReturnsUnauthorized_WhenInvalid()
         {
             // Arrange
