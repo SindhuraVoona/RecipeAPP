@@ -7,19 +7,23 @@ import Profile from "./Profile";
 import Login from "./Login";
 import Register from "./Register";
 import EditRecipeForm from "./EditRecipeForm";
+import ProtectedRoute from "./ProtectedRoute";
 
 export default function App() {
   return (
     <Router>
       <Layout>
         <Routes>
-          <Route path="/" element={<Home />} />
+          {/* Public Routes */}
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/add-recipe" element={<NewRecipe />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/recipes/:id" element={<DynamicRecipeDetails />} />
-          <Route path="/recipes/:id/edit" element={<DynamicEditForm />} />
+
+          {/* Protected Routes */}
+          <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+          <Route path="/add-recipe" element={<ProtectedRoute><NewRecipe /></ProtectedRoute>} />
+          <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+          <Route path="/recipes/:id" element={<ProtectedRoute><DynamicRecipeDetails /></ProtectedRoute>} />
+          <Route path="/recipes/:id/edit" element={<ProtectedRoute><DynamicEditForm /></ProtectedRoute>} />
         </Routes>
       </Layout>
     </Router>

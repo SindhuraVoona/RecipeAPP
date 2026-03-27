@@ -9,6 +9,14 @@ const RecipeDetails = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  // rating/comment form state
+  const [ratingValue, setRatingValue] = useState(5);
+  const [commentText, setCommentText] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState(null);
+
+  const isAuthenticated = Boolean(localStorage.getItem("token"));
+
   useEffect(() => {
     const fetchRecipe = async () => {
       try {
@@ -104,6 +112,19 @@ const RecipeDetails = () => {
 
       <p className="text-gray-700 mb-6">{recipe.description}</p>
 
+      {/* average rating */}
+      <div className="mb-4">
+        <strong>Average rating:&nbsp;</strong>
+        {recipe.ratings && recipe.ratings.length > 0 ? (
+          <span>{(
+            recipe.ratings.reduce((sum, r) => sum + (r.ratingValue || 0), 0) /
+            recipe.ratings.length
+          ).toFixed(1)} / 5 ({recipe.ratings.length} ratings)</span>
+        ) : (
+          <span>No ratings yet</span>
+        )}
+      </div>
+
       {/* Ingredients Section */}
       <div className="mb-6">
         <h3 className="text-xl font-semibold mb-2">Ingredients</h3>
@@ -130,6 +151,80 @@ const RecipeDetails = () => {
           <p className="text-gray-500">No instructions available.</p>
         )}
       </div>
+
+      {/* comments list */}
+      <div className="mt-8">
+        <h3 className="text-xl font-semibold mb-2">Comments</h3>
+        {recipe.comments && recipe.comments.length > 0 ? (
+          recipe.comments.map((c) => (
+            <div key={c.commentId} className="mb-2 p-2 border rounded">
+              <div className="text-gray-800">{c.content}</div>
+              <div className="text-gray-500 text-sm">
+                {new Date(c.createdAt).toLocaleString()}
+              </div>
+            </div>
+          ))
+        ) : (
+          <p className="text-gray-500">No comments yet.</p>
+        )}
+      </div>
+
+      {/* add comment/rating form */}
+      {isAuthenticated ? (
+        <div className="mt-6 p-4 border rounded bg-gray-50">
+          <h4 className="font-semibold mb-2">Leave a rating or comment</h4>
+          {submitError && <div className="text-red-600 mb-2">{submitError}</div>}
+          <div className="mb-2">
+            <label className="mr-2">Rating:</label>
+            <select
+              value={ratingValue}
+              onChange={(e) => setRatingValue(Number(e.target.value))}
+              disabled={submitting}
+            >
+              {[1, 2, 3, 4, 5].map((n) => (
+                <option key={n} value={n}>{n}</option>
+              ))}
+            </select>
+          </div>
+          <div className="mb-2">
+            <label className="block mb-1">Comment:</label>
+            <textarea
+              rows={3}
+              className="w-full p-2 border rounded"
+              value={commentText}
+              onChange={(e) => setCommentText(e.target.value)}
+              disabled={submitting}
+            />
+          </div>
+          <button
+            className="px-4 py-2 bg-blue-600 text-white rounded"
+            onClick={async () => {
+              setSubmitting(true);
+              setSubmitError(null);
+              try {
+                await api.post(`/recipes/${id}/ratings`, { ratingValue });
+                if (commentText.trim()) {
+                  await api.post(`/recipes/${id}/comments`, { content: commentText });
+                }
+                // refresh recipe data
+                const resp = await api.get(`/recipes/${id}`);
+                setRecipe(resp.data);
+                setCommentText("");
+                setRatingValue(5);
+              } catch (err) {
+                setSubmitError(err?.response?.data?.message || err.message || "Failed to submit.");
+              } finally {
+                setSubmitting(false);
+              }
+            }}
+            disabled={submitting}
+          >
+            {submitting ? "Submitting…" : "Submit"}
+          </button>
+        </div>
+      ) : (
+        <p className="mt-6 text-gray-700">Please <a href="/login" className="text-blue-600 underline">log in</a> to add a rating or comment.</p>
+      )}
     </div>
   );
 };

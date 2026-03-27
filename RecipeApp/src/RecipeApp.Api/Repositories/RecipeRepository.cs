@@ -18,7 +18,35 @@ public class RecipeRepository : IRecipeRepository
             .Include(r => r.Category)
             .Include(r => r.RecipeIngredients)
                 .ThenInclude(ri => ri.Ingredient)
+            .Include(r => r.Comments)
+            .Include(r => r.Ratings)
             .ToListAsync();
+    }
+
+    public async Task<RecipeApp.Api.Models.PagedResult<Recipe>> GetRecipesPagedAsync(int page, int pageSize)
+    {
+        if (page < 1) page = 1;
+        if (pageSize < 1) pageSize = 10;
+
+        var query = _context.Recipes!
+            .Include(r => r.Category)
+            .Include(r => r.RecipeIngredients)
+                .ThenInclude(ri => ri.Ingredient)
+            .Include(r => r.Comments)
+            .Include(r => r.Ratings)
+            .AsQueryable();
+
+        var total = await query.CountAsync();
+        var items = await query
+            .Skip((page - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+
+        return new RecipeApp.Api.Models.PagedResult<Recipe>
+        {
+            Items = items,
+            TotalCount = total
+        };
     }
 
     public async Task<Recipe?> GetRecipeByIdAsync(int id)
@@ -27,6 +55,8 @@ public class RecipeRepository : IRecipeRepository
             .Include(r => r.Category)
             .Include(r => r.RecipeIngredients)
                 .ThenInclude(ri => ri.Ingredient)
+            .Include(r => r.Comments)
+            .Include(r => r.Ratings)
             .FirstOrDefaultAsync(r => r.RecipeId == id);
     }
 
@@ -111,5 +141,23 @@ public class RecipeRepository : IRecipeRepository
         await _context.SaveChangesAsync();
 
         return true;
+    }
+
+    public async Task<Comment> AddCommentAsync(Comment comment)
+    {
+        if (_context.Comments == null)
+            throw new InvalidOperationException("Comments DbSet is null.");
+        _context.Comments.Add(comment);
+        await _context.SaveChangesAsync();
+        return comment;
+    }
+
+    public async Task<Rating> AddRatingAsync(Rating rating)
+    {
+        if (_context.Ratings == null)
+            throw new InvalidOperationException("Ratings DbSet is null.");
+        _context.Ratings.Add(rating);
+        await _context.SaveChangesAsync();
+        return rating;
     }
 }
