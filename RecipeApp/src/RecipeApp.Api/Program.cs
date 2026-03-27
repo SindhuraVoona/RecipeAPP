@@ -62,6 +62,7 @@ public class Program
         builder.Services.AddSwaggerGen();
 
         var app = builder.Build();
+        var enableSwagger = app.Environment.IsDevelopment() || app.Configuration.GetValue<bool>("Swagger:Enabled");
 
         // Apply migrations at startup (optional)
         using (var scope = app.Services.CreateScope())
@@ -70,12 +71,13 @@ public class Program
             db.Database.Migrate();
         }
 
-        if (app.Environment.IsDevelopment())
+        if (enableSwagger)
         {
             app.UseSwagger();
             app.UseSwaggerUI();
         }
-        else
+
+        if (!app.Environment.IsDevelopment())
         {
             app.UseHttpsRedirection();
         }
