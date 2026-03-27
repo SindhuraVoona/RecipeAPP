@@ -1,0 +1,11 @@
+{
+  "installCommand": "cd RecipeApp/src/recipeapp-ui && npm install",
+  "buildCommand": "cd RecipeApp/src/recipeapp-ui && npm run build",
+  "outputDirectory": "RecipeApp/src/recipeapp-ui/dist",
+  "rewrites": [
+    {
+      "source": "/((?!.*\\..*).*)",
+      "destination": "/index.html"
+    }
+  ]
+}
