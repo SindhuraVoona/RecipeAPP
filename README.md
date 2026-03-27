@@ -5,10 +5,10 @@ It demonstrates a clean architecture using React + Vite for the frontend, .NET 6
 This project is ideal for showcasing API integration, authentication, CRUD operations, and modular component design.
 
 ## Project layout
-- src/recipeapp-ui — React 18 + Vite frontend
-- src/RecipeApp.Core — shared models / DTOs (C# .NET 6)
-- src/RecipeApp.Api — ASP.NET Core 6 Web API (C# .NET 6)
-- tests/RecipeApp.Tests — xUnit tests for controllers/services
+- RecipeApp/src/recipeapp-ui — React 18 + Vite frontend
+- RecipeApp/src/RecipeApp.Core — shared models / DTOs (C# .NET 6)
+- RecipeApp/src/RecipeApp.Api — ASP.NET Core 6 Web API (C# .NET 6)
+- RecipeApp/tests/RecipeApp.Tests — xUnit tests for controllers/services
 
 ## Versions
 - Frontend: React 18, Vite
@@ -35,7 +35,7 @@ npm run dev
 ## Add required packages (API & UI)
 API:
 ```bash
-cd src/RecipeApp.Api
+cd RecipeApp/src/RecipeApp.Api
 dotnet add package BCrypt.Net-Next
 # for migrations:
 dotnet add package Microsoft.EntityFrameworkCore.Design
@@ -45,12 +45,12 @@ dotnet add package Microsoft.AspNetCore.Authentication.JwtBearer --version 6.0.0
 
 UI:
 ```bash
-cd src/recipeapp-ui
+cd RecipeApp/src/recipeapp-ui
 npm install axios
 ```
 Tests (from tests folder):
 ```bash
-cd tests/RecipeApp.Tests
+cd RecipeApp/tests/RecipeApp.Tests
 dotnet add package Microsoft.NET.Test.Sdk --version 17.10.0
 dotnet add package xunit --version 2.4.2
 dotnet add package xunit.runner.visualstudio --version 2.4.5
