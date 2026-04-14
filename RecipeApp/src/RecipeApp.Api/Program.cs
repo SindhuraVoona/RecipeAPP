@@ -64,11 +64,19 @@ public class Program
         var app = builder.Build();
         var enableSwagger = app.Environment.IsDevelopment() || app.Configuration.GetValue<bool>("Swagger:Enabled");
 
-        // Apply migrations at startup (optional)
+        // Apply migrations at startup, but don't crash the container if DB is unreachable.
         using (var scope = app.Services.CreateScope())
         {
-            var db = scope.ServiceProvider.GetRequiredService<RecipeDbContext>();
-            db.Database.Migrate();
+            var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
+            try
+            {
+                var db = scope.ServiceProvider.GetRequiredService<RecipeDbContext>();
+                db.Database.Migrate();
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, "Database migration failed at startup. Verify ConnectionStrings__DefaultConnection in environment variables.");
+            }
         }
 
         if (enableSwagger)
